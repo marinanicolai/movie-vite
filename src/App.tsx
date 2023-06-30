@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { UPCOMING_MOVIES } from './utils/apiUrl';
 import axios from 'axios';
 
+import Home from './pages/home/Home';
 // Define a type for the movie data
 type MovieData = {
   original_title: string;
@@ -21,14 +22,8 @@ const MovieComponent = () => {
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3${UPCOMING_MOVIES}?api_key=${apiKey}`
-          // {
-          //   headers: {
-          //     Authorization: 'Bearer ' + apiToken, // assuming the token is stored in an environment variable
-          //   },
-          // }
         );
         setMovieData(response.data.results);
-        //  console.log(response.data);
       } catch (error) {
         console.error('Error fetching movie data:', error);
       }
@@ -43,6 +38,7 @@ const MovieComponent = () => {
 
   return (
     <div>
+      <Home />
       {movieData.map((movie) => (
         <div key={movie.id}>
           <h1>{movie.original_title}</h1>
