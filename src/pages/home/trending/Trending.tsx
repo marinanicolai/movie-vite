@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
-import { UPCOMING_MOVIES, POPULAR } from './utils/apiUrl';
-import { TRENDING_ALL } from './utils/apiUrl';
+import { TRENDING_ALL } from '../../../utils/apiUrl';
 import axios from 'axios';
-import { fetchDataFromApi } from './utils/api';
+import { fetchDataFromApi } from '../../../utils/api';
 
-import Home from './pages/home/Home';
-// Define a type for the movie data
 type MovieData = {
   original_title: string;
   overview: string;
@@ -15,7 +12,7 @@ type MovieData = {
   // Add more properties as needed
 };
 
-const App = () => {
+const Trending = () => {
   const [movieData, setMovieData] = useState<MovieData[]>([]);
 
   useEffect(() => {
@@ -31,17 +28,16 @@ const App = () => {
     //   }
     // };
 
-    fetchDataFromApi(setMovieData, POPULAR);
+    fetchDataFromApi(setMovieData, TRENDING_ALL);
   }, []); // The empty array ensures the effect only runs once on component mount
-
+  console.log('this is movie data from trending' + movieData);
   if (!movieData || movieData.length === 0) {
     return <div>Loading...</div>; // Display a loading message while the request is in progress
   }
 
   return (
     <div>
-      <Home />
-      <h1>popular list</h1>
+      <h1>trending list</h1>
       {movieData.map((movie) => (
         <div key={movie.id}>
           <h1>{movie.original_title}</h1>
@@ -57,4 +53,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Trending;

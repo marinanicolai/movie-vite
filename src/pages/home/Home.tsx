@@ -1,7 +1,13 @@
 import { FC } from 'react';
+import Trending from './trending/Trending.tsx';
 
 const Home: FC = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <p>******************</p>
+      <Trending />
+    </>
+  );
 };
 
 export default Home;
