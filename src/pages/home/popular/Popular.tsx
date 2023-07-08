@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TRENDING } from '../../../utils/apiUrl';
+import { POPULAR } from '../../../utils/apiUrl';
 import { fetchDataFromApi } from '../../../utils/api';
 
 type MovieData = {
@@ -11,11 +11,11 @@ type MovieData = {
   // Add more properties as needed
 };
 
-const Trending = () => {
+const Top_rated = () => {
   const [movieData, setMovieData] = useState<MovieData[]>([]);
 
   useEffect(() => {
-    fetchDataFromApi(setMovieData, TRENDING);
+    fetchDataFromApi(setMovieData, POPULAR);
   }, []); // The empty array ensures the effect only runs once on component mount
 
   if (!movieData || movieData.length === 0) {
@@ -24,7 +24,7 @@ const Trending = () => {
 
   return (
     <div>
-      <h1>top TRENDING list</h1>
+      <h1>popular list</h1>
       {movieData.map((movie) => (
         <div key={movie.id}>
           <h1>{movie.original_title}</h1>
@@ -40,4 +40,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Top_rated;

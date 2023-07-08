@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { UPCOMING_MOVIES, POPULAR } from './utils/apiUrl';
-import { TRENDING_ALL } from './utils/apiUrl';
 import axios from 'axios';
 import { fetchDataFromApi } from './utils/api';
 
@@ -41,18 +40,6 @@ const App = () => {
   return (
     <div>
       <Home />
-      <h1>popular list</h1>
-      {movieData.map((movie) => (
-        <div key={movie.id}>
-          <h1>{movie.original_title}</h1>
-          <p>{movie.overview}</p>
-          <p>Release date: {movie.release_date}</p>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.original_title}
-          />
-        </div>
-      ))}
     </div>
   );
 };

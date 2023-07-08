@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { TRENDING } from '../../../utils/apiUrl';
+import { TOP_RATED } from '../../../utils/apiUrl';
+import axios from 'axios';
 import { fetchDataFromApi } from '../../../utils/api';
 
 type MovieData = {
@@ -11,11 +12,23 @@ type MovieData = {
   // Add more properties as needed
 };
 
-const Trending = () => {
+const Top_rated = () => {
   const [movieData, setMovieData] = useState<MovieData[]>([]);
 
   useEffect(() => {
-    fetchDataFromApi(setMovieData, TRENDING);
+    // const fetchMovieData = async () => {
+    //   const apiKey = import.meta.env.VITE_API_KEY;
+    //   try {
+    //     const response = await axios.get(
+    //       `https://api.themoviedb.org/3${POPULAR}?api_key=${apiKey}`
+    //     );
+    //     setMovieData(response.data.results);
+    //   } catch (error) {
+    //     console.error('Error fetching movie data:', error);
+    //   }
+    // };
+
+    fetchDataFromApi(setMovieData, TOP_RATED);
   }, []); // The empty array ensures the effect only runs once on component mount
 
   if (!movieData || movieData.length === 0) {
@@ -24,7 +37,7 @@ const Trending = () => {
 
   return (
     <div>
-      <h1>top TRENDING list</h1>
+      <h1>top rated list</h1>
       {movieData.map((movie) => (
         <div key={movie.id}>
           <h1>{movie.original_title}</h1>
@@ -40,4 +53,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Top_rated;
