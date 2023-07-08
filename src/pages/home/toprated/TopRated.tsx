@@ -16,20 +16,18 @@ const Top_rated = () => {
   const [movieData, setMovieData] = useState<MovieData[]>([]);
 
   useEffect(() => {
-    // const fetchMovieData = async () => {
-    //   const apiKey = import.meta.env.VITE_API_KEY;
-    //   try {
-    //     const response = await axios.get(
-    //       `https://api.themoviedb.org/3${POPULAR}?api_key=${apiKey}`
-    //     );
-    //     setMovieData(response.data.results);
-    //   } catch (error) {
-    //     console.error('Error fetching movie data:', error);
-    //   }
-    // };
-
     fetchDataFromApi(setMovieData, TOP_RATED);
   }, []); // The empty array ensures the effect only runs once on component mount
+
+  const handleSearchByDay = () => {
+    // Logic for searching trending movies by day
+    // Implement the desired functionality here
+  };
+
+  const handleSearchByWeek = () => {
+    // Logic for searching trending movies by week
+    // Implement the desired functionality here
+  };
 
   if (!movieData || movieData.length === 0) {
     return <div>Loading...</div>; // Display a loading message while the request is in progress
@@ -38,6 +36,14 @@ const Top_rated = () => {
   return (
     <div>
       <h1>top rated list</h1>
+      <div>
+        <button onClick={handleSearchByDay}>
+          Search Trending Movies by Day
+        </button>
+        <button onClick={handleSearchByWeek}>
+          Search Trending Movies by Week
+        </button>
+      </div>
       {movieData.map((movie) => (
         <div key={movie.id}>
           <h1>{movie.original_title}</h1>
