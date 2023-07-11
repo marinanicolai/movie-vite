@@ -1,1 +1,1 @@
-declare modula "*.jsx";
+declare module '*.jsx';
