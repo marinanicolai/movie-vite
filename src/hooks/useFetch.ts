@@ -13,7 +13,7 @@ const useFetch = (
     setData(null);
     setError(null);
 
-    fetchDataFromApi(url, { URLSearchParams })
+    fetchDataFromApi(setData, url)
       .then((res: any) => {
         setLoading(false);
         setData(res);
