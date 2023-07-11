@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { UPCOMING_MOVIES, POPULAR } from './utils/apiUrl';
-import axios from 'axios';
+import { POPULAR } from './utils/apiUrl';
 import { fetchDataFromApi } from './utils/api';
 
 import Home from './pages/home/Home';

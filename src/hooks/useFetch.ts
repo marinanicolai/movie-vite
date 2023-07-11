@@ -18,7 +18,7 @@ const useFetch = (
         setLoading(false);
         setData(res);
       })
-      .catch((err: any) => {
+      .catch(() => {
         setLoading(false);
         setError('Something went wrong!');
       });

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { TOP_RATED } from '../../../utils/apiUrl';
-import axios from 'axios';
 import { fetchDataFromApi } from '../../../utils/api';
 
 type MovieData = {

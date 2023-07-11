@@ -11,10 +11,10 @@ type MovieData = {
   // Add more properties as needed
 };
 
-interface SearchButtonProps {
-  onSearchByDay: () => void;
-  onSearchByWeek: () => void;
-}
+// interface SearchButtonProps {
+//   onSearchByDay: () => void;
+//   onSearchByWeek: () => void;
+// }
 
 const Trending = () => {
   const [movieData, setMovieData] = useState<MovieData[]>([]);
