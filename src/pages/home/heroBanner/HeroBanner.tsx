@@ -35,14 +35,15 @@ const HeroBanner: React.FC = () => {
           </div>
         )}
       </div>
+      <div className={styles.opacityLayer}></div>
 
       <ContentWrapper>
         <div className={styles.heroBannerContent}>
-          <h1 className='welcome-text'>Welcome</h1>
-          <p className='description'>
+          <h1 className={styles.title}>Welcome</h1>
+          <p className={styles.subtitle}>
             Millions of movies & TV shows to discover. Explore now.
           </p>
-          <div className='search-bar'>
+          <div className={styles.seachInput}>
             <input type='text' placeholder='Search' />
             <button className='search-button'>Search</button>
           </div>
